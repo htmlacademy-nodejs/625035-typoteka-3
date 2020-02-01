@@ -1,7 +1,7 @@
 # Личный проект «Типотека» [![Build status][travis-image]][travis-url]
 
 * Студент: [Dmitry Svistun](https://up.htmlacademy.ru/nodejs/3/user/625035).
-* Наставник: `Неизвестно`.
+* Наставник: `Oleh Polyakov`.
 
 ---
 
