@@ -1,6 +1,7 @@
 # Личный проект «Типотека» [![Build status][travis-image]][travis-url]
 
 * Студент: [Dmitry Svistun](https://up.htmlacademy.ru/nodejs/3/user/625035).
+
 * Наставник: [`Вадим Осюков`](https://htmlacademy.ru/profile/id1411353).
 
 ---
