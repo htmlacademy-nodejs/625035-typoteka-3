@@ -5,7 +5,6 @@ const chalk = require(`chalk`);
 const {
   CATEGORIES,
   DATE_BOUNDARIES,
-  EXIT_CODE,
   FILE_NAME,
   SENTENCES,
   TITLES,
