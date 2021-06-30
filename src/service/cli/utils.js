@@ -2,14 +2,7 @@
 const fs = require(`fs`).promises;
 const chalk = require(`chalk`);
 
-const {
-  CATEGORIES,
-  DATE_BOUNDARIES,
-  EXIT_CODE,
-  FILE_NAME,
-  SENTENCES,
-  TITLES,
-} = require(`../utils/constants`);
+const {DATE_BOUNDARIES, FILE_NAME} = require(`../utils/constants`);
 const {getRandomInt, shuffle} = require(`../utils/utils`);
 
 const getFullText = (sentences) => {
@@ -17,24 +10,29 @@ const getFullText = (sentences) => {
 
   return shuffle(sentences).slice(min, getRandomInt(min, sentences.length - 1));
 };
-const getTitle = () => TITLES[getRandomInt(0, TITLES.length - 1)];
+
+const getAnnounce = (sentences) => getFullText(sentences).slice(0, 4).join(` `);
+const getCategory = (categories) => [
+  categories[getRandomInt(0, categories.length - 1)],
+];
 const getDate = () =>
   new Date(
     getRandomInt(DATE_BOUNDARIES.min, DATE_BOUNDARIES.max)
   ).toLocaleDateString();
-const getAnnounce = () => getFullText(SENTENCES).slice(0, 4).join(` `);
-const getCategory = () => [CATEGORIES[getRandomInt(0, CATEGORIES.length - 1)]];
+const getTitle = (titles) => titles[getRandomInt(0, titles.length - 1)];
 
-const generatePublication = () => ({
-  title: getTitle(),
+const generatePublication = (sentences, titles, categories) => ({
+  announce: getAnnounce(sentences),
+  category: getCategory(categories),
   createdDate: getDate(),
-  announce: getAnnounce(),
-  fullText: getFullText(SENTENCES).join(` `),
-  category: getCategory(),
+  fullText: getFullText(sentences).join(` `),
+  title: getTitle(titles),
 });
 
-const generatePublications = (count) =>
-  Array(count).fill({}).map(generatePublication);
+const generatePublications = (count, sentences, titles, categories) =>
+  Array(count)
+    .fill({})
+    .map(() => generatePublication(sentences, titles, categories));
 
 const writeIntoFile = async (content) => {
   try {
