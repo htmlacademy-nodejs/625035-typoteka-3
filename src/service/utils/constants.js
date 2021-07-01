@@ -20,12 +20,21 @@ const DATE_BOUNDARIES = {
   max: new Date().getTime(),
 };
 
+const HTTP_CODE = {
+  OK: 200,
+  NOT_FOUND: 404,
+  INTERNAL_SERVER_ERROR: 500,
+  FORBIDDEN: 403,
+  UNAUTHORIZED: 401,
+};
+
 module.exports = {
   DATE_BOUNDARIES,
   DEFAULT_COMMAND,
   DEFAULT_COUNT,
   EXIT_CODE,
   FILE_NAME,
+  HTTP_CODE,
   MAX_ITEMS,
   USER_ARGV_INDEX,
 };
